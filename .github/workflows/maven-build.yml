@@ -10,34 +10,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'adopt'
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
 
-    - name: Build with Maven
-      run: |
-        cd ecommerce-multivendor-backend-master
-        mvn clean package
+      - name: Build with Maven
+        run: |
+          cd ecommerce-multivendor-backend-master
+          mvn clean package
 
-   Set up Maven settings for Nexus deployment
-    - name: Set up Maven settings
-      run: |
-        mkdir -p ~/.m2
-        echo "<settings>
-                <servers>
-                  <server>
-                    <id>b2c-snapshots</id>
-                    <username>admin</username>
-                    <password>Shekhar@2301</password>
-                  </server>
-                </servers>
-              </settings>" > ~/.m2/settings.xml
+      # Set up Maven settings for Nexus deployment
+      - name: Set up Maven settings
+        run: |
+          mkdir -p ~/.m2
+          echo "<settings>
+                  <servers>
+                    <server>
+                      <id>b2c-snapshots</id>
+                      <username>admin</username>
+                      <password>Shekhar@2301</password>
+                    </server>
+                  </servers>
+                </settings>" > ~/.m2/settings.xml
 
-    # Build and deploy to Nexus
-    - name: Build and deploy to Nexus
-      run: mvn -B clean deploy --file ecommerce-multivendor-backend-master/pom.xml 
+      # Build and deploy to Nexus
+      - name: Build and deploy to Nexus
+        run: |
+          mvn -B clean deploy --file ecommerce-multivendor-backend-master/pom.xml
