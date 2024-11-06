@@ -32,5 +32,5 @@ jobs:
         NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
       run: |
         cd ecommerce-multivendor-backend-master
-        mvn deploy -x -DaltDeploymentRepository=b2c-snapshots::default::${{ secrets.NEXUS_URL }}/repository/b2c-snapshots/
+        mvn deploy -X -DaltDeploymentRepository=b2c-snapshots::default::${{ secrets.NEXUS_URL }}/repository/b2c-snapshots/
 
