@@ -15,10 +15,6 @@
 	<name>ecommerce-backend</name>
 	<description>Ecommerce Project (Rest APIs) using Spring Boot</description>
 	<distributionManagement>
-        	<repository>
-            		<id>b2c-jar</id>
-            		<url>http://52.71.237.58:8081/repository/b2c-jar/</url>
-        	</repository>
         	<snapshotRepository>
            		<id>b2c-snapshots</id>
             		<url>http://52.71.237.58:8081/repository/b2c-snapshots/</url>
