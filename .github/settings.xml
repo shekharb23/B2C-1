@@ -3,11 +3,6 @@
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <servers>
         <server>
-            <id>b2c-jar</id>
-            <username>admin</username>
-            <password>Shekhar@2301</password>
-        </server>
-        <server>
             <id>b2c-snapshots</id>
             <username>admin</username>
             <password>Shekhar@2301</password>
