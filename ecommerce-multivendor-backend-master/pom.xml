@@ -168,7 +168,7 @@
                     <version>0.8.7</version> <!-- Use the same version as above -->
                 </dependency>
             </dependencies>
-        </plugin>
+    </plugin>
         		<plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-deploy-plugin</artifactId>
