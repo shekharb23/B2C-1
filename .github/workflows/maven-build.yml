@@ -24,13 +24,20 @@ jobs:
         cd ecommerce-multivendor-backend-master
         mvn clean package
 
-    - name: Upload to Nexus
-      if: success()
-      env:
-        NEXUS_URL: ${{ secrets.NEXUS_URL }}
-        NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
-        NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+   Set up Maven settings for Nexus deployment
+    - name: Set up Maven settings
       run: |
-        cd ecommerce-multivendor-backend-master
-        mvn deploy -X -DaltDeploymentRepository=b2c-snapshots::default::${{ secrets.NEXUS_URL }}/repository/b2c-snapshots/
+        mkdir -p ~/.m2
+        echo "<settings>
+                <servers>
+                  <server>
+                    <id>b2c-snapshots</id>
+                    <username>admin</username>
+                    <password>Shekhar@2301</password>
+                  </server>
+                </servers>
+              </settings>" > ~/.m2/settings.xml
 
+    # Build and deploy to Nexus
+    - name: Build and deploy to Nexus
+      run: mvn -B clean deploy --file ecommerce-multivendor-backend-master/pom.xml 
