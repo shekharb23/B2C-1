@@ -17,11 +17,11 @@
 	<distributionManagement>
         	<repository>
             		<id>b2c-jar</id>
-            		<url>http://34.229.178.149:8081/repository/b2c-jar/</url>
+            		<url>http://52.71.237.58:8081/repository/b2c-jar/</url>
         	</repository>
         	<snapshotRepository>
            		<id>b2c-snapshots</id>
-            		<url>http://34.229.178.149:8081/repository/b2c-snapshots/</url>
+            		<url>http://52.71.237.58:8081/repository/b2c-snapshots/</url>
         	</snapshotRepository>
     	</distributionManagement>
 	<properties>
@@ -169,7 +169,14 @@
                 </dependency>
             </dependencies>
         </plugin>
-
+        		<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>3.1.1</version>
+            <configuration>
+                <altDeploymentRepository>b2c-snapshots::default::http://52.71.237.58:8081/repository/b2c-snapshots/</altDeploymentRepository>
+            </configuration>
+        		</plugin>
 		</plugins>
 	</build>
 
