@@ -38,12 +38,6 @@ jobs:
                   </servers>
                 </settings>" > ~/.m2/settings.xml
 
-      # SonarQube Analysis
-      - name: SonarQube Analysis
-        uses: sonarsource/sonarcloud-github-action@v2
-        with:
-          sonar-token: ${{ secrets.SONAR_TOKEN }}
-
       # Build and deploy to Nexus
       - name: Build and deploy to Nexus
         run: |
